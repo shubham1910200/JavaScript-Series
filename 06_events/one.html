@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li id="one">Apple</li>
+        <li id="two">Banana</li>
+        <li id="three">Mangoes</li>
+        <li id="four">Orange</li>
+    </ul>
+
+    <script>
+        //  document.getElementById('list').addEventListener('click',function(e)
+        // {
+        //     console.log('list clicked');
+        // })
+        // document.getElementById('one').addEventListener('click',function(e)
+        // {
+        //     console.log('Apple clicked');
+        //     // e.stopPropagation();
+            
+            
+        // })
+       
+// Event bubble goes to bottom to top
+// To stop bubbling we used the stopPropagation()
+
+document.querySelector('#list').addEventListener('click',function(e){
+    console.log('event');
+    let removeIt = e.target;
+    removeIt.remove();
+},false)
+       
+
+    </script>
+</body>
+</html>
+<!-- 
+     // type,timestamp,defaultPrevented,
+        // target,toElement,srcElement,currentTarget
+        // clientX,clientY,screenX,screenY
+        // altkey,ctrlkey,shiftkey,keyCode
+ -->
