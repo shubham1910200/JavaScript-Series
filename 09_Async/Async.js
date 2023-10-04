@@ -1,0 +1,3 @@
+/* 
+ Javascdript is a synchronous and single thread language.
+*/
