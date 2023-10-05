@@ -93,3 +93,28 @@ const stopChangingColor = function () {
 document.querySelector('#stop').addEventListener('click', stopChangingColor);
 
 ```
+
+# Project 5 solution
+```Javascript
+  const key = document.querySelector('.key');
+
+window.addEventListener('keydown', (e) => {
+  key.innerHTML = `
+    <div class = 'color'>
+    <table>
+    <tr>
+    <th>Key</th>
+    <th>keycode</th>
+    <th>Code</th>
+    </tr>
+    <tr>
+    <td>${e.key ===' '?'Space':e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+    </tr>
+    </table>
+    </div>
+    `;
+});
+
+```
