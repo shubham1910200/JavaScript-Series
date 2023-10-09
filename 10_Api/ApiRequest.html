@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>XML HttpRequest</h1>
+    <p>All modern browsers have a built-in XMLHttpRequest object to request data from a server.</p>
+
+<h1>The XMLHttpRequest Object</h1>
+<p>The XMLHttpRequest object can be used to request data from a web server.</p>
+
+
+
+
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchaudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestUrl);
+    xhr.onreadystatechange = function()
+    {
+        console.log(xhr.readyState);
+        
+        if(xhr.readyState==4)
+        {
+            const data = JSON.parse(this.responseText)
+            console.log('followers',data)
+            const img = document.createElement("img")
+            img.src = data.avatar_url
+            img.style.height = '100px'
+            img.style.width = '100px'
+            document.body.appendChild(img) 
+            const p = document.createElement('h2')
+            p.innerHTML = `followers - ${data.followers}`
+            document.body.appendChild(p)
+        }
+    }
+    xhr.send();
+
+
+    
+   
+</script>
+</html>
