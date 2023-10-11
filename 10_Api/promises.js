@@ -40,7 +40,7 @@ const promiseFour =  new Promise(function(resolve,reject){
 
     setTimeout(function(){
         let error = true;
-        if(error)
+        if(!error)
         {
             console.log('Async task 4');
         resolve({username:'shubham'})
@@ -51,6 +51,7 @@ const promiseFour =  new Promise(function(resolve,reject){
         }
     },1000)
 })
+
 promiseFour
 .then(function(user){
     console.log(user);
@@ -63,4 +64,45 @@ promiseFour
     console.log(' task is complete or reject');
 })
 
+/*
+// We can also used async await instead of .then
 
+
+async function consumepromiseFour(){
+
+    try{
+        const response = await promiseFour
+    console.log(response)
+    }
+     catch(error)
+     {
+        console.log(error);
+     }
+}
+consumepromiseFour()
+
+*/
+async function getAllUser()
+{
+  try {
+    const response = await fetch('https://api.github.com/users/hiteshchaudhary')
+    const data = await response.json()
+    console.log(data);
+  } catch (error) {
+    console.log('E: ',error);
+  }   
+}
+// getAllUser()
+
+// We can also used .then .catch
+
+fetch('https://api.github.com/users/hiteshchaudhary')
+.then((response)=>{
+    return response.json()
+})
+.then((data)=>{
+    console.log(data)
+})
+.catch((error)=>{
+    console.log(error);
+})
