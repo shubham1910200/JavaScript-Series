@@ -38,7 +38,18 @@ OOP promotes modularity, code reusability, and structured design by representing
 - javascript default behaviour is <u> prototyple </u>.
 - Note - Every in javascript is a object.
 - eg. function,Array,String =>Object => null
+## Their are three way to create Object
+ ```javascript
+   const obj = new Object({
+    name:'shubham'
+    })
 
-## Prototype
+const obj1 = new obj();
+const obj2 = {
 
+}
+  ```
+## important question
+- this in window env'n point to window object.
+- this in node env'n point to empty {} object.
 
