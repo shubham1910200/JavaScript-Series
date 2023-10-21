@@ -53,3 +53,47 @@ const obj2 = {
 - this in window env'n point to window object.
 - this in node env'n point to empty {} object.
 
+# bind 
+- bind are used to preserve the this value in different context.
+```javascript
+     const person = {
+    name: "Alice",
+    greet: function () {
+        console.log(`Hello, ${this.name}!`);
+    }
+};
+
+const sayHello = person.greet;
+
+// Using bind to preserve the 'this' context
+const boundGreet = person.greet.bind(person);
+sayHello(); // Outputs: "Hello, undefined!"
+boundGreet(); // Outputs: "Hello, Alice!"
+
+```
+
+# getter and setter
+- you can use getter and setter methods to control the access to the properties of an object. Getters allow you to retrieve the value of a property, and setters allow you to modify the value of a property, while providing a level of abstraction and control over how the property is accessed or modified.
+```javascript
+class User
+{
+    constructor(username,password)
+    {
+        this.username = username
+        this.password = password
+    }
+    get username()
+    {
+        return this._username.toUpperCase() // to avoid race condition between method and constructor we used _ beacuse to uniquely indentified
+    }
+    set username(value)
+    {
+        this._username = value
+    }
+}
+const shubham = new User('shubham@gmail.com','123')
+console.log(shubham.username);
+
+// output: SHUBHAM@GMAIL.COM
+
+```
